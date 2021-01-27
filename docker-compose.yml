@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  script:
+    image: python:latest
+    command: sh -c "python index.py"
+    build: .
+    working_dir: /app
+    volumes:
+      - ./:/app
