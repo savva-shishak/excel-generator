@@ -1,18 +1,9 @@
-from openpyxl import Workbook
-wb = Workbook()
+from openpyxl import load_workbook
+from openpyxl.cell.cell import MergedCell
+from model import MCell
 
-# grab the active worksheet
-ws = wb.active
+wb = load_workbook(filename = 'sample.xlsx')
+sheet_ranges = wb['Шаблон']
 
-# Data can be assigned directly to cells
-ws['A1'] = 42
-
-# Rows can also be appended
-ws.append([1, 2, 3])
-
-# Python types will automatically be converted
-import datetime
-ws['A2'] = datetime.datetime.now()
-
-# Save the file
-wb.save("sample.xlsx")
+cell = MCell()
+print(cell)
